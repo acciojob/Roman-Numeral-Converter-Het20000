@@ -1,5 +1,7 @@
-function convertToRoman(num) {
-  const romanMap = [
+function toRoman(num) {
+  if (num === 0) return ''; // No Roman numeral for zero
+
+  const symbols = [
     ['M', 1000],
     ['CM', 900],
     ['D', 500],
@@ -15,12 +17,12 @@ function convertToRoman(num) {
     ['I', 1]
   ];
 
-  let roman = '';
-  for (const [symbol, value] of romanMap) {
+  let result = '';
+  for (const [roman, value] of symbols) {
     while (num >= value) {
-      roman += symbol;
+      result += roman;
       num -= value;
     }
   }
-  return roman;
+  return result;
 }
