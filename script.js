@@ -10,8 +10,8 @@ function convertToRoman(num) {
   };
 
 	let ans = "";
-while (num !==0){
-	for (let i in romanMap) {
+	while (num !==0){
+     for (let i in romanMap) {
 		let [symbol, value] = romanMap[i];
 		if (value <= num) {
 			ans += symbol;
