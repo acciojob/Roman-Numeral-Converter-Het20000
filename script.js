@@ -9,30 +9,13 @@ function convertToRoman(num) {
       6:['I', 1]
     };
 
-
-let n=798;
-let ans="";
-while(n!=0){
-   
-   for(leto i in romanMap){
-
-       let value=romanMap[i][0];
-       let num=romanMap[i][1];
-
-
-        if(num<=n){
-
-           ans=ans+value;
-            n=n-num;
-             break;
-            
-}
-        
-
-
-
-}
-
-
-
+let ans = "";
+	for (let i = 0; i < romanMap.length; i++) {
+    const [roman, value] = romanMap[i];
+    while (num >= value) {
+      ans += roman;
+      num -= value;
+    }
+  }
+  return ans;
 }
