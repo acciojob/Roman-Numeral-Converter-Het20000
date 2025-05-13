@@ -1,21 +1,37 @@
 function convertToRoman(num) {
-  const obj = [
-    0: ['M', 1000],
-    1: ['D', 500],
-    2: ['C', 100],
-    3: ['L', 50],
-    4: ['X', 10],
-    5: ['V', 5],
-    6: ['I', 1]
+  const romanSymbols = [
+    ['M', 1000],
+    ['CM', 900],
+    ['D', 500],
+    ['CD', 400],
+    ['C', 100],
+    ['XC', 90],
+    ['L', 50],
+    ['XL', 40],
+    ['X', 10],
+    ['IX', 9],
+    ['V', 5],
+    ['IV', 4],
+    ['I', 1]
   ];
-	let ans = "";
 
-  for (const [symbol, value] of romanMap) {
+  let result = '';
+
+  for (let i = 0; i < romanSymbols.length; i++) {
+    const [symbol, value] = romanSymbols[i];
+
     while (num >= value) {
-      ans += symbol;
+      result += symbol;
       num -= value;
     }
   }
 
-  return ans;
+  return result;
 }
+
+// Test cases
+console.log(convertToRoman(14));   // Output: XIV
+console.log(convertToRoman(798));  // Output: DCCXCVIII
+
+// do not edit below this line
+module.exports = convertToRoman;
